@@ -1,0 +1,445 @@
+// Mock monitoring locations across the North Eastern Region (NER).
+// All values are SIMULATED for prototype demonstration purposes.
+
+export type RiskLevel = 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL';
+
+export interface MonitoringLocation {
+  id: string;
+  name: string;
+  state: string;
+  lat: number;
+  lng: number;
+  riskLevel: RiskLevel;
+  riskScore: number;
+  rainfall: number; // mm
+  soilMoisture: number; // %
+  slopeMovement: number; // mm/day
+  temperature: number; // °C
+  slope: number; // degrees
+  historicalRisk: 'Low' | 'Moderate' | 'High';
+  lastUpdated: string; // relative label
+  sensorType: string;
+}
+
+export const NER_STATES = [
+  'Assam',
+  'Arunachal Pradesh',
+  'Meghalaya',
+  'Sikkim',
+  'Nagaland',
+  'Manipur',
+  'Mizoram',
+  'Tripura',
+];
+
+export const initialLocations: MonitoringLocation[] = [
+  {
+    id: 'L01',
+    name: 'Guwahati Hills',
+    state: 'Assam',
+    lat: 26.1445,
+    lng: 91.7362,
+    riskLevel: 'HIGH',
+    riskScore: 74,
+    rainfall: 82,
+    soilMoisture: 76,
+    slopeMovement: 14,
+    temperature: 27,
+    slope: 34,
+    historicalRisk: 'High',
+    lastUpdated: '2 min ago',
+    sensorType: 'Multi-sensor',
+  },
+  {
+    id: 'L02',
+    name: 'East Khasi Hills',
+    state: 'Meghalaya',
+    lat: 25.5788,
+    lng: 91.8933,
+    riskLevel: 'CRITICAL',
+    riskScore: 88,
+    rainfall: 96,
+    soilMoisture: 87,
+    slopeMovement: 17,
+    temperature: 21,
+    slope: 42,
+    historicalRisk: 'High',
+    lastUpdated: '1 min ago',
+    sensorType: 'Multi-sensor',
+  },
+  {
+    id: 'L03',
+    name: 'Cherrapunji',
+    state: 'Meghalaya',
+    lat: 25.2702,
+    lng: 91.7323,
+    riskLevel: 'HIGH',
+    riskScore: 79,
+    rainfall: 110,
+    soilMoisture: 84,
+    slopeMovement: 12,
+    temperature: 19,
+    slope: 38,
+    historicalRisk: 'High',
+    lastUpdated: '3 min ago',
+    sensorType: 'Rainfall',
+  },
+  {
+    id: 'L04',
+    name: 'Tawang',
+    state: 'Arunachal Pradesh',
+    lat: 27.586,
+    lng: 91.8594,
+    riskLevel: 'MODERATE',
+    riskScore: 52,
+    rainfall: 54,
+    soilMoisture: 68,
+    slopeMovement: 5,
+    temperature: 12,
+    slope: 45,
+    historicalRisk: 'Moderate',
+    lastUpdated: '5 min ago',
+    sensorType: 'Soil Moisture',
+  },
+  {
+    id: 'L05',
+    name: 'Itanagar Valley',
+    state: 'Arunachal Pradesh',
+    lat: 27.0844,
+    lng: 93.6053,
+    riskLevel: 'LOW',
+    riskScore: 22,
+    rainfall: 28,
+    soilMoisture: 44,
+    slopeMovement: 2,
+    temperature: 24,
+    slope: 18,
+    historicalRisk: 'Low',
+    lastUpdated: '4 min ago',
+    sensorType: 'Weather',
+  },
+  {
+    id: 'L06',
+    name: 'Aizawl Ridge',
+    state: 'Mizoram',
+    lat: 23.7271,
+    lng: 92.7176,
+    riskLevel: 'CRITICAL',
+    riskScore: 84,
+    rainfall: 91,
+    soilMoisture: 82,
+    slopeMovement: 15,
+    temperature: 23,
+    slope: 40,
+    historicalRisk: 'High',
+    lastUpdated: '30 sec ago',
+    sensorType: 'Slope Movement',
+  },
+  {
+    id: 'L07',
+    name: 'Gangtok Slopes',
+    state: 'Sikkim',
+    lat: 27.3389,
+    lng: 88.6065,
+    riskLevel: 'MODERATE',
+    riskScore: 58,
+    rainfall: 62,
+    soilMoisture: 71,
+    slopeMovement: 6,
+    temperature: 15,
+    slope: 36,
+    historicalRisk: 'Moderate',
+    lastUpdated: '6 min ago',
+    sensorType: 'Multi-sensor',
+  },
+  {
+    id: 'L08',
+    name: 'Kohima Highlands',
+    state: 'Nagaland',
+    lat: 25.6751,
+    lng: 94.1086,
+    riskLevel: 'MODERATE',
+    riskScore: 48,
+    rainfall: 47,
+    soilMoisture: 63,
+    slopeMovement: 4,
+    temperature: 20,
+    slope: 30,
+    historicalRisk: 'Moderate',
+    lastUpdated: '8 min ago',
+    sensorType: 'Rainfall',
+  },
+  {
+    id: 'L09',
+    name: 'Imphal Basin',
+    state: 'Manipur',
+    lat: 24.817,
+    lng: 93.9368,
+    riskLevel: 'HIGH',
+    riskScore: 67,
+    rainfall: 74,
+    soilMoisture: 78,
+    slopeMovement: 9,
+    temperature: 22,
+    slope: 28,
+    historicalRisk: 'High',
+    lastUpdated: '7 min ago',
+    sensorType: 'Soil Moisture',
+  },
+  {
+    id: 'L10',
+    name: 'Agartala Hills',
+    state: 'Tripura',
+    lat: 23.8315,
+    lng: 91.2868,
+    riskLevel: 'LOW',
+    riskScore: 28,
+    rainfall: 32,
+    soilMoisture: 51,
+    slopeMovement: 2,
+    temperature: 28,
+    slope: 22,
+    historicalRisk: 'Low',
+    lastUpdated: '10 min ago',
+    sensorType: 'Weather',
+  },
+  {
+    id: 'L11',
+    name: 'Dibrugarh',
+    state: 'Assam',
+    lat: 27.4728,
+    lng: 94.912,
+    riskLevel: 'MODERATE',
+    riskScore: 44,
+    rainfall: 41,
+    soilMoisture: 58,
+    slopeMovement: 3,
+    temperature: 26,
+    slope: 20,
+    historicalRisk: 'Moderate',
+    lastUpdated: '9 min ago',
+    sensorType: 'Rainfall',
+  },
+  {
+    id: 'L12',
+    name: 'Mokokchung',
+    state: 'Nagaland',
+    lat: 26.3267,
+    lng: 94.5159,
+    riskLevel: 'LOW',
+    riskScore: 18,
+    rainfall: 22,
+    soilMoisture: 39,
+    slopeMovement: 1,
+    temperature: 19,
+    slope: 24,
+    historicalRisk: 'Low',
+    lastUpdated: '12 min ago',
+    sensorType: 'Weather',
+  },
+  {
+    id: 'L13',
+    name: 'Lunglei',
+    state: 'Mizoram',
+    lat: 22.8663,
+    lng: 92.7395,
+    riskLevel: 'HIGH',
+    riskScore: 71,
+    rainfall: 78,
+    soilMoisture: 80,
+    slopeMovement: 11,
+    temperature: 24,
+    slope: 35,
+    historicalRisk: 'High',
+    lastUpdated: '5 min ago',
+    sensorType: 'Slope Movement',
+  },
+  {
+    id: 'L14',
+    name: 'Ukhrul',
+    state: 'Manipur',
+    lat: 25.0903,
+    lng: 94.3617,
+    riskLevel: 'MODERATE',
+    riskScore: 54,
+    rainfall: 58,
+    soilMoisture: 66,
+    slopeMovement: 5,
+    temperature: 21,
+    slope: 33,
+    historicalRisk: 'Moderate',
+    lastUpdated: '11 min ago',
+    sensorType: 'Multi-sensor',
+  },
+  {
+    id: 'L15',
+    name: 'Geyzing',
+    state: 'Sikkim',
+    lat: 27.2932,
+    lng: 88.2667,
+    riskLevel: 'LOW',
+    riskScore: 26,
+    rainfall: 30,
+    soilMoisture: 47,
+    slopeMovement: 2,
+    temperature: 14,
+    slope: 31,
+    historicalRisk: 'Low',
+    lastUpdated: '14 min ago',
+    sensorType: 'Weather',
+  },
+  {
+    id: 'L16',
+    name: 'Sohra Region',
+    state: 'Meghalaya',
+    lat: 25.2421,
+    lng: 91.6856,
+    riskLevel: 'HIGH',
+    riskScore: 76,
+    rainfall: 102,
+    soilMoisture: 85,
+    slopeMovement: 13,
+    temperature: 20,
+    slope: 39,
+    historicalRisk: 'High',
+    lastUpdated: '4 min ago',
+    sensorType: 'Rainfall',
+  },
+];
+
+export interface SensorReading {
+  id: string;
+  location: string;
+  state: string;
+  type: 'Rainfall' | 'Soil Moisture' | 'Slope Movement' | 'Weather';
+  value: string;
+  status: 'Active' | 'Warning' | 'Critical' | 'Offline';
+  lastUpdated: string;
+}
+
+export const initialSensors: SensorReading[] = [
+  { id: 'RS-102', location: 'Shillong', state: 'Meghalaya', type: 'Rainfall', value: '82 mm', status: 'Critical', lastUpdated: '1 min ago' },
+  { id: 'SM-221', location: 'Cherrapunji', state: 'Meghalaya', type: 'Soil Moisture', value: '76%', status: 'Active', lastUpdated: '2 min ago' },
+  { id: 'SM-305', location: 'Tawang', state: 'Arunachal Pradesh', type: 'Soil Moisture', value: '84%', status: 'Warning', lastUpdated: '1 min ago' },
+  { id: 'SL-119', location: 'Aizawl', state: 'Mizoram', type: 'Slope Movement', value: '14 mm/day', status: 'Critical', lastUpdated: '30 sec ago' },
+  { id: 'RS-118', location: 'Guwahati', state: 'Assam', type: 'Rainfall', value: '54 mm', status: 'Active', lastUpdated: '3 min ago' },
+  { id: 'WS-045', location: 'Gangtok', state: 'Sikkim', type: 'Weather', value: '15°C', status: 'Active', lastUpdated: '4 min ago' },
+  { id: 'SL-204', location: 'Lunglei', state: 'Mizoram', type: 'Slope Movement', value: '11 mm/day', status: 'Warning', lastUpdated: '5 min ago' },
+  { id: 'RS-073', location: 'Imphal', state: 'Manipur', type: 'Rainfall', value: '74 mm', status: 'Warning', lastUpdated: '7 min ago' },
+  { id: 'WS-091', location: 'Itanagar', state: 'Arunachal Pradesh', type: 'Weather', value: '24°C', status: 'Active', lastUpdated: '4 min ago' },
+  { id: 'SM-158', location: 'Kohima', state: 'Nagaland', type: 'Soil Moisture', value: '63%', status: 'Active', lastUpdated: '8 min ago' },
+  { id: 'RS-066', location: 'Agartala', state: 'Tripura', type: 'Rainfall', value: '32 mm', status: 'Active', lastUpdated: '10 min ago' },
+  { id: 'WS-110', location: 'Mokokchung', state: 'Nagaland', type: 'Weather', value: '19°C', status: 'Offline', lastUpdated: '2 hr ago' },
+];
+
+export interface AlertItem {
+  id: string;
+  location: string;
+  state: string;
+  risk: RiskLevel;
+  message: string;
+  time: string;
+  action: string;
+  acknowledged: boolean;
+}
+
+export const initialAlerts: AlertItem[] = [
+  {
+    id: 'A01',
+    location: 'East Khasi Hills',
+    state: 'Meghalaya',
+    risk: 'CRITICAL',
+    message: 'High landslide probability detected due to heavy rainfall and increasing slope movement.',
+    time: '10:32 AM',
+    action: 'Prepare evacuation and restrict access to vulnerable slopes.',
+    acknowledged: false,
+  },
+  {
+    id: 'A02',
+    location: 'Aizawl Ridge',
+    state: 'Mizoram',
+    risk: 'CRITICAL',
+    message: 'Slope movement detected beyond critical threshold. Immediate action required.',
+    time: '10:18 AM',
+    action: 'Issue community warning and mobilize response teams.',
+    acknowledged: false,
+  },
+  {
+    id: 'A03',
+    location: 'Guwahati Hills',
+    state: 'Assam',
+    risk: 'HIGH',
+    message: 'Heavy rainfall detected. Soil moisture approaching saturation.',
+    time: '10:05 AM',
+    action: 'Monitor closely and alert local authorities.',
+    acknowledged: false,
+  },
+  {
+    id: 'A04',
+    location: 'Lunglei',
+    state: 'Mizoram',
+    risk: 'HIGH',
+    message: 'Sustained rainfall with rising slope movement trend.',
+    time: '09:51 AM',
+    action: 'Restrict movement on vulnerable road stretches.',
+    acknowledged: true,
+  },
+  {
+    id: 'A05',
+    location: 'Imphal Basin',
+    state: 'Manipur',
+    risk: 'HIGH',
+    message: 'Soil moisture above safe threshold in landslide-prone sector.',
+    time: '09:40 AM',
+    action: 'Deploy field verification team to the zone.',
+    acknowledged: false,
+  },
+  {
+    id: 'A06',
+    location: 'Tawang',
+    state: 'Arunachal Pradesh',
+    risk: 'MODERATE',
+    message: 'Soil moisture increasing steadily over last 6 hours.',
+    time: '09:22 AM',
+    action: 'Continue monitoring; update risk in next cycle.',
+    acknowledged: true,
+  },
+  {
+    id: 'A07',
+    location: 'Cherrapunji',
+    state: 'Meghalaya',
+    risk: 'HIGH',
+    message: 'Rainfall intensity exceeding 100mm with high slope vulnerability.',
+    time: '09:05 AM',
+    action: 'Activate early warning for nearby settlements.',
+    acknowledged: false,
+  },
+];
+
+// Historical landslide events (simulated)
+export const historicalEvents: Record<string, { year: string; events: number; rainfall: number }[]> = {
+  '2022': Array.from({ length: 12 }, (_, i) => ({ year: '2022', events: Math.round(4 + 6 * Math.sin(i / 2)), rainfall: Math.round(180 + 120 * Math.sin(i / 2)) })),
+  '2023': Array.from({ length: 12 }, (_, i) => ({ year: '2023', events: Math.round(5 + 8 * Math.sin(i / 2.3)), rainfall: Math.round(200 + 140 * Math.sin(i / 2.3)) })),
+  '2024': Array.from({ length: 12 }, (_, i) => ({ year: '2024', events: Math.round(6 + 9 * Math.sin(i / 2.1)), rainfall: Math.round(220 + 150 * Math.sin(i / 2.1)) })),
+  '2025': Array.from({ length: 12 }, (_, i) => ({ year: '2025', events: Math.round(5 + 7 * Math.sin(i / 2.5)), rainfall: Math.round(190 + 130 * Math.sin(i / 2.5)) })),
+  '2026': Array.from({ length: 8 }, (_, i) => ({ year: '2026', events: Math.round(6 + 8 * Math.sin(i / 2.2)), rainfall: Math.round(210 + 140 * Math.sin(i / 2.2)) })),
+};
+
+export const yearlyTotals = [
+  { year: '2022', events: 38 },
+  { year: '2023', events: 52 },
+  { year: '2024', events: 67 },
+  { year: '2025', events: 49 },
+  { year: '2026', events: 31 },
+];
+
+export const stateRiskDistribution = [
+  { state: 'Meghalaya', low: 3, moderate: 4, high: 5, critical: 2 },
+  { state: 'Mizoram', low: 2, moderate: 3, high: 4, critical: 2 },
+  { state: 'Assam', low: 6, moderate: 5, high: 3, critical: 1 },
+  { state: 'Arunachal Pradesh', low: 8, moderate: 4, high: 2, critical: 0 },
+  { state: 'Sikkim', low: 5, moderate: 3, high: 2, critical: 0 },
+  { state: 'Manipur', low: 4, moderate: 4, high: 2, critical: 1 },
+  { state: 'Nagaland', low: 6, moderate: 3, high: 1, critical: 0 },
+  { state: 'Tripura', low: 7, moderate: 2, high: 1, critical: 0 },
+];
